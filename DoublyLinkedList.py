@@ -5,7 +5,6 @@ class Node:
         self.next = next
 
 class DoublyLinkedList:
-    size = 0
 
     def __init__(self):
         self.head = Node(None)
@@ -38,7 +37,7 @@ class DoublyLinkedList:
         else:
             current = self.head
             previous = None
-            for i in range(1, num):
+            for i in range(0, num):
                 current = current.next
             previous = current.previ.previ
 
