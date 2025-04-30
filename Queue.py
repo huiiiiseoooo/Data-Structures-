@@ -3,19 +3,17 @@ MAX_SIZE_QUEUE = 5
 class Queue:
     def __init__(self):
         self.queue = [None] * MAX_SIZE_QUEUE
-        self.top = -1
-        self.first = -1
+        self.top = 0
+        self.first = 0
     
     def enqueue(self, item):
-        self.queue[self.top+1] = item
-        self.top += 1
+        self.top = (self.top+1) % MAX_SIZE_QUEUE
+        self.queue[self.top] = item
         
-
     def dequeue(self):
-        print(self.queue[self.first+1])
-        self.queue[self.first+1] = None
-        self.first += 1
-
+        self.first = (self.first+1)%MAX_SIZE_QUEUE
+        self.queue[self.first] = None
+        
     def is_empty(self):
         if(self.top == self.first):
             return True
